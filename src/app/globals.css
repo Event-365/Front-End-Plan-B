@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary: #c21f34;
+  --color-accent: #f59e0b;
+  --color-text: #1f2937;
+  --font-sans: "Inter Variable", "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+a,
+button,
+[role="button"] {
+  touch-action: manipulation;
+}
+
+::selection {
+  background-color: #e89613;
+  color: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f9fafb;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.45); }
+  50% { box-shadow: 0 0 0 14px rgba(255, 255, 255, 0); }
+}
+
+@keyframes ctaRise {
+  from { opacity: 0; transform: translateY(18px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.cta-rise {
+  animation: ctaRise 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.cta-pulse {
+  animation: ctaPulse 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .cta-rise, .cta-pulse { animation: none; }
+}
