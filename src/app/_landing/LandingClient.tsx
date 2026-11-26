@@ -383,7 +383,7 @@ export default function LandingClient() {
       <section
         id="sec-reviews"
         data-reveal
-        className={`w-full bg-linear-to-b from-orange-50 via-slate-50 to-slate-100 px-4 py-16 transition-all duration-700 lg:px-16 ${SECTION_REVEAL(
+        className={`w-full bg-white px-4 py-16 transition-all duration-700 lg:px-16 ${SECTION_REVEAL(
           isVisible("sec-reviews"),
         )}`}
       >
