@@ -213,7 +213,9 @@ const SECTION_REVEAL = (shown: boolean) =>
 
 export default function LandingClient() {
   const posthog = usePostHog();
-  const prefersReducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
+  const prefersReducedMotion = useMediaQuery(
+    "(prefers-reduced-motion: reduce)",
+  );
   const [occasionIndex, setOccasionIndex] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const isVisible = useScrollReveal((section) =>
@@ -285,7 +287,12 @@ export default function LandingClient() {
               animationDuration: `${2200 + i * 150}ms`,
             }}
           >
-            <Image src="/star.svg" alt="" width={16 + i * 2} height={16 + i * 2} />
+            <Image
+              src="/star.svg"
+              alt=""
+              width={16 + i * 2}
+              height={16 + i * 2}
+            />
           </div>
         ))}
 
@@ -365,7 +372,7 @@ export default function LandingClient() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-3xl font-semibold text-primary"
         >
-          Επιλέχθηκε στο
+          Βραβεύθηκε στο
         </motion.h3>
         <div className="flex flex-wrap items-center justify-center gap-10 sm:gap-20">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -375,7 +382,11 @@ export default function LandingClient() {
             className="max-h-20 invert"
           />
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/pos4work-logo.png" alt="POS4Work" className="max-h-28 rounded-xl" />
+          <img
+            src="/pos4work-logo.png"
+            alt="POS4Work"
+            className="max-h-28 rounded-xl"
+          />
         </div>
       </div>
 
@@ -428,8 +439,12 @@ export default function LandingClient() {
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
                     <Icon className="size-6 text-primary" />
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
-                  <p className="text-[15px] leading-relaxed text-gray-600">{item.desc}</p>
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    {item.title}
+                  </h3>
+                  <p className="text-[15px] leading-relaxed text-gray-600">
+                    {item.desc}
+                  </p>
                 </div>
               );
             })}
@@ -475,11 +490,17 @@ export default function LandingClient() {
             {FAQ_ITEMS.map((faq, i) => {
               const isOpen = openFaq === i;
               return (
-                <div key={faq.q} className="border-b border-gray-100 last:border-0">
+                <div
+                  key={faq.q}
+                  className="border-b border-gray-100 last:border-0"
+                >
                   <button
                     onClick={() => {
                       if (!isOpen)
-                        posthog?.capture("landing_faq_opened", { question: faq.q, index: i });
+                        posthog?.capture("landing_faq_opened", {
+                          question: faq.q,
+                          index: i,
+                        });
                       setOpenFaq(isOpen ? null : i);
                     }}
                     aria-expanded={isOpen}
@@ -495,7 +516,14 @@ export default function LandingClient() {
                           : "border-black/10 text-gray-400"
                       }`}
                     >
-                      <svg className="size-3.5" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round">
+                      <svg
+                        className="size-3.5"
+                        viewBox="0 0 14 14"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2.2}
+                        strokeLinecap="round"
+                      >
                         <path d="M7 2v10M2 7h10" />
                       </svg>
                     </span>
@@ -505,7 +533,9 @@ export default function LandingClient() {
                     style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
                   >
                     <div className="overflow-hidden">
-                      <p className="px-6 pb-5 text-sm leading-relaxed text-gray-500">{faq.a}</p>
+                      <p className="px-6 pb-5 text-sm leading-relaxed text-gray-500">
+                        {faq.a}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -528,7 +558,9 @@ export default function LandingClient() {
             <p className="mb-2 text-xs font-bold uppercase tracking-widest text-primary/50">
               Επικοινωνία
             </p>
-            <h2 className="text-2xl font-bold text-gray-900 md:text-3xl">Μίλησέ μας</h2>
+            <h2 className="text-2xl font-bold text-gray-900 md:text-3xl">
+              Μίλησέ μας
+            </h2>
             <p className="mx-auto mt-4 max-w-lg leading-relaxed text-gray-500">
               Έχεις ερώτηση, πρόταση ή χρειάζεσαι βοήθεια; Η ομάδα μας είναι εδώ
               και θα σου απαντήσει το συντομότερο δυνατό.
@@ -536,9 +568,27 @@ export default function LandingClient() {
           </div>
           <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-3">
             {[
-              { icon: FiMail, label: "Email", value: CONTACT.email, href: `mailto:${CONTACT.email}`, method: "email" },
-              { icon: FiPhone, label: "Τηλέφωνο", value: CONTACT.phone, href: CONTACT.phoneHref, method: "phone" },
-              { icon: FiMapPin, label: "Τοποθεσία", value: CONTACT.location, href: null, method: null },
+              {
+                icon: FiMail,
+                label: "Email",
+                value: CONTACT.email,
+                href: `mailto:${CONTACT.email}`,
+                method: "email",
+              },
+              {
+                icon: FiPhone,
+                label: "Τηλέφωνο",
+                value: CONTACT.phone,
+                href: CONTACT.phoneHref,
+                method: "phone",
+              },
+              {
+                icon: FiMapPin,
+                label: "Τοποθεσία",
+                value: CONTACT.location,
+                href: null,
+                method: null,
+              },
             ].map(({ icon: Icon, label, value, href, method }) => {
               const body = (
                 <>
@@ -547,16 +597,21 @@ export default function LandingClient() {
                   </div>
                   <div className="text-left">
                     <p className="text-xs font-medium text-gray-400">{label}</p>
-                    <p className="text-sm font-semibold text-gray-800">{value}</p>
+                    <p className="text-sm font-semibold text-gray-800">
+                      {value}
+                    </p>
                   </div>
                 </>
               );
-              const cls = "flex items-center gap-4 rounded-2xl border border-gray-200 bg-gray-50 p-5";
+              const cls =
+                "flex items-center gap-4 rounded-2xl border border-gray-200 bg-gray-50 p-5";
               return href ? (
                 <a
                   key={label}
                   href={href}
-                  onClick={() => posthog?.capture("landing_contact_clicked", { method })}
+                  onClick={() =>
+                    posthog?.capture("landing_contact_clicked", { method })
+                  }
                   className={`${cls} transition-colors hover:border-primary/30`}
                 >
                   {body}
