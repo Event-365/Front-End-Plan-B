@@ -15,8 +15,7 @@ type Review = {
   images: string[];
 };
 
-// Photos lived on cdn.youreventpro.gr (down with AWS). Drop files into
-// /public/reviews/ and list them here, e.g. "/reviews/airbnb-1.jpg".
+// Photos live in /public/reviews/. Several per review = auto-cycle.
 const REVIEWS: Review[] = [
   {
     category: "Χώρος",
@@ -26,7 +25,7 @@ const REVIEWS: Review[] = [
     reviewer: "Αντρέας",
     rating: 5,
     gradient: "from-red-800 via-red-950 to-black",
-    images: [],
+    images: ["/reviews/nea-makri.jpg"],
   },
   {
     category: "DJ",
@@ -36,7 +35,7 @@ const REVIEWS: Review[] = [
     reviewer: "Χριστόφορος",
     rating: 5,
     gradient: "from-indigo-800 via-indigo-950 to-black",
-    images: [],
+    images: ["/reviews/dj-vassilis.jpg"],
   },
   {
     category: "Χώρος",
@@ -46,7 +45,7 @@ const REVIEWS: Review[] = [
     reviewer: "Εύα",
     rating: 5,
     gradient: "from-emerald-800 via-emerald-950 to-black",
-    images: [],
+    images: ["/reviews/theatro-avlaia.jpg"],
   },
   {
     category: "DJ",
@@ -56,7 +55,7 @@ const REVIEWS: Review[] = [
     reviewer: "Γιάννης",
     rating: 5,
     gradient: "from-amber-700 via-amber-950 to-black",
-    images: [],
+    images: ["/reviews/dj-ale.jpg"],
   },
   {
     category: "Χώρος",
@@ -66,7 +65,7 @@ const REVIEWS: Review[] = [
     reviewer: "Έλενα",
     rating: 5,
     gradient: "from-rose-800 via-rose-950 to-black",
-    images: [],
+    images: ["/reviews/anthology.jpg"],
   },
   {
     category: "Χώρος",
@@ -76,7 +75,7 @@ const REVIEWS: Review[] = [
     reviewer: "Έλενα",
     rating: 5,
     gradient: "from-fuchsia-800 via-fuchsia-950 to-black",
-    images: [],
+    images: ["/reviews/spiti-oropos.jpg"],
   },
 ];
 
